@@ -50,12 +50,43 @@ export const getPrize = async (req, res) => {
     res.status(200).json({ success: true, prizes: prizesWithAvailability });
   } catch (error) {
     console.error("Error fetching all prizes with availability:", error);
+    res.status(500).json({
+      success: false,
+      message: "Gagal mengambil daftar hadiah.",
+      error: error.message,
+    });
+  }
+};
+
+export const updatePrize = async (req, res) => {
+  const { id } = req.params;
+  const { name, qty } = req.body;
+  try {
+    await query(
+      `UPDATE prize SET name = ?, qty = ? 
+      WHERE id = ?`,
+      [name, qty, id]
+    );
+
+    res
+      .status(200)
+      .json({ success: true, message: "Prize Updated successfully.🎊" });
+  } catch (error) {
     res
       .status(500)
-      .json({
-        success: false,
-        message: "Gagal mengambil daftar hadiah.",
-        error: error.message,
-      });
+      .json({ success: false, message: "Failed to update prize.", error });
+  }
+};
+
+export const deletedPrize = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await query(`DELETE FROM prize WHERE id = ?`, [id]);
+
+    res
+      .status(200)
+      .json({ success: true, message: "Prize Deleted successfully.🎊" });
+  } catch (error) {
+    res.status(500).json({ success: false, error });
   }
 };

@@ -275,3 +275,38 @@ export const performStandardDraw = async (req, res) => {
     });
   }
 };
+
+export const getWinners = async (req, res) => {
+  const { type } = req.query;
+  try {
+    if (type === "grandPrize") {
+      const grandPrizeWinners = await query(`
+        SELECT k.no_emp, k.nama, p.name AS prize 
+        FROM grand_prize gp 
+        INNER JOIN karyawan k  ON gp.no_emp = k.no_emp 
+        INNER JOIN prize p ON p.id = gp.id_prize`);
+      return res.status(200).json({ success: true, data: grandPrizeWinners });
+    } else if (type === "LuckyDraw") {
+      const luckyDrawWinners = await query(`
+        SELECT k.no_emp, k.nama, p.name AS prize
+        FROM lucky_draw ld 
+        INNER JOIN karyawan k  ON ld.no_emp = k.no_emp 
+        INNER JOIN prize p ON p.id = ld.id_prize`);
+      return res.status(200).json({ success: true, data: luckyDrawWinners });
+    } else if (type === "luckyDip") {
+      const luckyDipWinners = await query(`
+        SELECT k.no_emp, k.nama, p.name AS prize
+        FROM lucky_dip ld 
+        INNER JOIN karyawan k ON ld.no_emp = k.no_emp 
+        INNER JOIN prize p ON p.id = ld.id_prize`);
+      return res.status(200).json({ success: true, data: luckyDipWinners });
+    } else {
+      return res.status(400).json({ success: false, message: "Invalid type" });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Terjadi kesalahan pada server.",
+    });
+  }
+};
