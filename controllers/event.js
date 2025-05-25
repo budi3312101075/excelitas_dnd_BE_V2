@@ -12,6 +12,17 @@ export const registerEvent = async (req, res) => {
   }
 
   try {
+    const userExist = await query(
+      `SELECT no_emp FROM karyawan WHERE no_emp = ?`,
+      [noEmp]
+    );
+
+    if (!userExist.length) {
+      return res
+        .status(400)
+        .json({ message: "Anda tidak terdaftar sebagai karyawan!" });
+    }
+
     const validateRegister = await query(
       `SELECT status_register FROM karyawan WHERE no_emp = ?`,
       [noEmp]

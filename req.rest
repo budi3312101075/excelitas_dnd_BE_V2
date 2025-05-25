@@ -21,7 +21,7 @@ GET http://localhost:5000/api/v1/getMe
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiIyOTM4ZjRiMS05NTc3LTQ3MzEtODkwNy0xNDE5NTk4NWVkYTYiLCJpYXQiOjE3NDgwMTAxMzYsImV4cCI6MTc0ODA5NjUzNn0.xyqS5PBvdonW9KjTq2iRSJdye9IcFpIha9CGYfjk50g
 
 ###
-POST http://localhost:5000/api/v1/registerEvent/2240605
+POST http://localhost:5000/api/v1/registerEvent/45435343657
 Content-Type: application/json
 
 {
