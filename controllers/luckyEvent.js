@@ -1,4 +1,3 @@
-// controllers/luckyDipController.js
 import { query } from "../utils/query.js";
 import { uuid } from "../utils/tools.cjs"; // Menggunakan uuid dari tools Anda
 
