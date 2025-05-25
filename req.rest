@@ -1,0 +1,66 @@
+###
+POST http://localhost:5000/api/v1/register
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+POST http://localhost:5000/api/v1/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+GET http://localhost:5000/api/v1/getMe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiIyOTM4ZjRiMS05NTc3LTQ3MzEtODkwNy0xNDE5NTk4NWVkYTYiLCJpYXQiOjE3NDgwMTAxMzYsImV4cCI6MTc0ODA5NjUzNn0.xyqS5PBvdonW9KjTq2iRSJdye9IcFpIha9CGYfjk50g
+
+###
+POST http://localhost:5000/api/v1/registerEvent/2240605
+Content-Type: application/json
+
+{
+  "email": "user@email.com",
+  "noHp": "08123456789",
+  "transportasi": "Mobil",
+  "keluargaUpdates": [
+    {
+      "nama": "Rina Putri",
+      "umur": 35,
+      "status_register": 1,
+      "status_keluarga": "Istri"
+    },
+    {
+      "nama": "Dino",
+      "umur": 5,
+      "status_register": 1,
+      "status_keluarga": "Anak"
+    },
+    {
+      "nama": "Lala",
+      "umur": 16,
+      "status_register": 1,
+      "status_keluarga": "Anak"
+    }
+  ]
+}
+
+###
+GET http://localhost:5000/api/v1/keluarga/2240605
+
+###
+GET http://localhost:5000/api/v1/pieChart
+
+###
+GET http://localhost:5000/api/v1/karyawan
+
+###
+GET http://localhost:5000/api/v1/allKeluarga
+
+###
+DELETE http://localhost:5000/api/v1/karyawan/345345
