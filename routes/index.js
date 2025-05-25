@@ -3,6 +3,8 @@ import auth from "./api/auth.js";
 import event from "./api/event.js";
 import keluarga from "./api/keluarga.js";
 import karyawan from "./api/karyawan.js";
+import luckyEvent from "./api/luckyEvent.js";
+import prize from "./api/prize.js";
 
 const app = express();
 
@@ -12,5 +14,7 @@ app.use(api, auth);
 app.use(api, event);
 app.use(api, keluarga);
 app.use(api, karyawan);
+app.use(api, luckyEvent);
+app.use(api, prize);
 
 export default app;

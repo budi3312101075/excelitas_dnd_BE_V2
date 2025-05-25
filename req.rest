@@ -64,3 +64,24 @@ GET http://localhost:5000/api/v1/allKeluarga
 
 ###
 DELETE http://localhost:5000/api/v1/karyawan/345345
+
+
+###
+GET http://localhost:5000/api/v1/getUserGacha/lucky_dip
+
+###
+POST http://localhost:5000/api/v1/addWinnersGacha/lucky_dip
+Content-Type: application/json
+
+{   
+  "listWinners": [
+    {
+      "idRegistration": "8b562c9b-a17b-4e45-8a01-e76ccbea9a9d",
+      "idPrize": "b3a0327d-2e4f-11f0-931d-00a554bb4e40"
+    },
+    {
+      "idRegistration": "9246f0bf-fb0a-4439-a12a-37c621d0e163",
+      "idPrize": "b3a0327d-2e4f-11f0-931d-00a554bb4e40"
+    }
+  ]
+}
