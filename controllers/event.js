@@ -1,6 +1,6 @@
 import { query } from "../utils/query.js";
 
-export const registerEvent = async (req, res) => {
+export const registerEvent = async (req, res, next) => {
   const { email, noHp, transportasi, keluargaUpdates } = req.body;
 
   const { noEmp } = req.params;
@@ -79,6 +79,7 @@ export const registerEvent = async (req, res) => {
       ]
     );
 
+    next();
     return res.status(200).json({
       message: "Registrasi berhasil",
     });

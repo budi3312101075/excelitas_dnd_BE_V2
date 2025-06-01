@@ -58,6 +58,8 @@ GET http://localhost:5000/api/v1/pieChart
 
 ###
 GET http://localhost:5000/api/v1/karyawan
+###
+GET http://localhost:5000/api/v1/karyawan/22406009
 
 ###
 GET http://localhost:5000/api/v1/allKeluarga
@@ -88,3 +90,6 @@ Content-Type: application/json
 
 ###
 GET http://localhost:5000/api/v1/prizes
+
+###
+PATCH http://localhost:5000/api/v1/scan/?type=scanDinner&noEmp=22406009

@@ -11,6 +11,18 @@ export const getKaryawan = async (req, res) => {
   }
 };
 
+export const getKaryawanById = async (req, res) => {
+  const { noEmp } = req.params;
+  try {
+    const getKaryawan = await query(`SELECT * FROM karyawan WHERE no_emp = ?`, [
+      noEmp,
+    ]);
+    return res.status(200).json({ success: true, data: getKaryawan });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+};
+
 export const updateKaryawan = async (req, res) => {
   const {
     nama,
