@@ -28,7 +28,7 @@ function startExpress() {
 
   app.use(
     cors({
-      origin: process.env.CORS,
+      origin: "http://localhost:4173",
       credentials: true,
     })
   );
